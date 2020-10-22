@@ -1,0 +1,108 @@
+<div class="content">
+  <mat-vertical-stepper class="stepper" #stepper>
+    <mat-step class="first_step">
+      <ng-template matStepLabel>Ваши товары</ng-template>
+      <div class="item" *ngFor="let item of items">
+        <div class="item_view">
+          <div class="img_wrapper">
+            <img [src]="item.img" routerLink="/detail" />
+          </div>
+          <span class="item_title" routerLink="/detail">{{ item.title }}</span>
+          <span class="item_count">{{ item.count }} шт.</span>
+          <span class="item_price">{{ item.count * item.price }} ₸</span>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <p class="item_summary">Общая сумма: {{ summary }} ₸</p>
+      <div class="step_button">
+        <div></div>
+        <button class="item_btn" mat-stroked-button color="accent" matStepperNext>
+          Далее
+        </button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Доставка</ng-template>
+      <div class="delivery">
+        <mat-button-toggle-group class="step_toggle_group" value="pickup">
+          <mat-button-toggle (click)="selectDeliveryType(0)" value="pickup"
+            >Самовывоз</mat-button-toggle
+          >
+          <mat-button-toggle (click)="selectDeliveryType(1)" value="delivery"
+            >Доставка</mat-button-toggle
+          >
+        </mat-button-toggle-group>
+        <div class="step_additional_info">
+          <p class="step_additional_info_title">{{ deliveryTypes[delivery].title }}</p>
+          <div class="step_additional_info_img_wrapper">
+            <img
+              src="../../assets/images/{{
+                deliveryTypes[delivery].imgPath
+              }}.png"
+            />
+          </div>
+          <p class="step_additional_info_description">
+            {{ deliveryTypes[delivery].description }}
+          </p>
+          <p class="step_additional_info_price">
+            Стоимость: {{ deliveryTypes[delivery].price }} ₸
+          </p>
+        </div>
+      </div>
+      <div class="step_button">
+        <button mat-stroked-button color="accent" matStepperPrevious>Назад</button>
+        <button mat-stroked-button color="accent" matStepperNext>Далее</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Способ оплаты</ng-template>
+      <div class="payment">
+        <mat-button-toggle-group (change)="da($event)" class="step_toggle_group" [value]="paymentItem">
+          <ng-container *ngFor="let paymentType of paymentTypes">
+            <mat-button-toggle [value]="paymentType.id" *ngIf="paymentType.available(delivery)">{{ paymentType.title }}</mat-button-toggle>
+          </ng-container>
+        </mat-button-toggle-group>
+        <div class="step_additional_info">
+          <p class="step_additional_info_title">{{ currentPayment.title }}</p>
+          <div class="step_additional_info_img_wrapper">
+            <img src="../../assets/images/{{ currentPayment.img }}.png" />
+          </div>
+          <p class="step_additional_info_description">
+            {{ currentPayment.description }}
+          </p>
+        </div>
+      </div>
+      <div class="step_button">
+        <button class="mat-body-1" mat-stroked-button color="accent" matStepperPrevious>Назад</button>
+        <button mat-stroked-button color="accent" matStepperNext>Далее</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Контактные данные</ng-template>
+      <div class="input">
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Почта</mat-label>
+          <input matInput>
+          <mat-icon matPrefix>alternate_email</mat-icon>
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Почта</mat-label>
+          <input matInput>
+          <mat-icon matPrefix>person</mat-icon>
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="outline">
+          <mat-label>Мобильный номер</mat-label>
+          <input matInput [imask]="{mask: '+{7} (000) 000-00-00', lazy: false}">
+          <mat-icon matPrefix>phone</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="step_button">
+        <button mat-stroked-button matStepperPrevious color="accent">Назад</button>
+        <button mat-stroked-button color="accent">Оформить заказ</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

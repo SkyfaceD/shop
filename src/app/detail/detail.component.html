@@ -1,0 +1,95 @@
+<div class="content">
+    <div class="content_main">
+        <div class="tl">
+            <div class="img_wrapper">
+                <img (click)="openPreview()" [src]="currentImg" />
+            </div>
+
+            <div class="swiper-container" [swiper]="config" [(index)]="index">
+                <div class="swiper-wrapper">
+                    <div
+                        class="swiper-slide"
+                        *ngFor="let item of images"
+                        (click)="onClickMe(item)"
+                    >
+                        <img src="{{ item }}" />
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+        <div class="tr">
+            <div class="tr_content">
+                <div class="tr_content_information">
+                    <p class="tr_content_information_title">
+                        Гарнитура JBL T205, Black
+                    </p>
+                    <mat-list>
+                        <div *ngFor="let item of items">
+                            <mat-list-item
+                                >{{ item.key }}: {{ item.value }}</mat-list-item
+                            >
+                            <mat-divider></mat-divider>
+                        </div>
+                    </mat-list>
+                    <button
+                        mat-raised-button
+                        color="accent"
+                        routerLink="./"
+                        fragment="characteristics"
+                    >
+                        Перейти к характеристикам
+                    </button>
+                </div>
+                <div class="tr_content_buy">
+                    <button
+                        mat-button
+                        class="tr_content_buy_price"
+                        [matMenuTriggerFor]="menu"
+                    >
+                        {{ price }} ₸
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="after">
+                        <button mat-menu-item>{{ priceAsRuble }} ₽</button>
+                        <button mat-menu-item>{{ priceAsDollar }} $</button>
+                        <button mat-menu-item>{{ priceAsEuro }} €</button>
+                    </mat-menu>
+                    <button
+                        mat-raised-button
+                        class="tr_content_buy_button"
+                        color="primary"
+                    >
+                        <div class="tr_content_buy_button_wrapper">
+                            Купить<mat-icon [inline]="true"
+                                >shopping_cart</mat-icon
+                            >
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="b">
+            <div class="b_description">
+                <p class="b_title">Описание</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia rem minima quis eum ratione? Dolor et in quibusdam dolorum reiciendis atque minima tempore delectus possimus aut maxime, facilis quis deleniti nesciunt suscipit aliquam! Sapiente dolore at inventore! Libero, placeat? Enim eos delectus provident, totam maiores doloribus aspernatur dolorem unde eius, culpa at porro. Ratione veritatis dolor nemo, iste consectetur debitis eaque placeat vitae similique earum, inventore ab libero consequuntur porro. Perspiciatis maiores asperiores eos ea voluptatum. Doloribus quasi quod delectus harum accusantium ipsum deserunt eveniet sunt voluptatem beatae molestiae voluptatum eum tempora, deleniti, corrupti cupiditate saepe quia laboriosam nostrum soluta architecto, vel repellat? Deserunt error in cupiditate recusandae dolor nostrum qui debitis ducimus ea inventore autem, molestiae fugit quibusdam fugiat. Odit dolorum nesciunt officiis, vero assumenda vel? Ad blanditiis quibusdam facilis dolor minus fuga quam asperiores labore! Nesciunt sint suscipit molestiae. Quia, consectetur quis. Sit, consectetur facilis excepturi non dolor voluptatem! Assumenda vel magnam mollitia temporibus quis enim similique tempora inventore? Ipsam saepe quibusdam excepturi necessitatibus consequatur error vel explicabo reprehenderit labore voluptas, totam architecto, commodi dignissimos soluta quisquam recusandae qui corporis provident expedita natus laudantium, rem ipsum odit. Blanditiis quas fugit tempore, deserunt eum architecto eaque quo similique excepturi dolores! Incidunt repellendus doloribus unde deleniti reprehenderit distinctio quia praesentium perferendis iste cum, saepe sint ullam illum tempore culpa enim voluptatibus officiis non ducimus maiores aperiam perspiciatis molestias! Provident praesentium architecto iste a adipisci saepe explicabo numquam autem soluta neque, magnam quae placeat optio iure veritatis corporis dolore aliquam? Quia ipsum libero, incidunt deserunt non numquam quos vitae perferendis quod eius, culpa autem perspiciatis consequatur itaque impedit consectetur ipsam amet atque voluptatem ratione, repudiandae aliquam magnam? Corrupti deserunt quos eum, atque molestiae veritatis nemo iure cumque tenetur magni repellendus odit inventore! Unde magni mollitia, facere repellendus debitis officia, eius inventore aliquid tempore culpa illo delectus, nisi accusamus. Aut illum, id non reprehenderit quas rem in, sint nemo magni, quam cumque nisi. Corporis quas quo optio temporibus sed exercitationem illum vero perferendis amet facilis, est fuga, ab, officiis eum quia quod animi delectus dolor dolore dignissimos quos facere neque! Voluptas, tempora assumenda corporis quidem quo architecto soluta voluptates odio exercitationem fugit totam sunt. Mollitia magnam perspiciatis accusantium enim perferendis dolorem dignissimos quas illo suscipit sequi. Illo eos architecto est ducimus ab aperiam libero eaque debitis odio, impedit itaque commodi ratione error corporis. Facere voluptas fugiat quaerat iste expedita soluta eos eum, consequatur porro aspernatur itaque cumque voluptates, ipsum, temporibus modi veniam harum. Rem perspiciatis, a numquam vero, esse quae quasi hic qui reprehenderit repellat, labore quis excepturi quibusdam? Quas ut, veniam adipisci ad error quos in obcaecati. Deserunt ipsa illo nihil inventore pariatur cum velit quisquam dolorem? Blanditiis rerum rem explicabo mollitia consequatur obcaecati voluptatibus sequi nesciunt repellat perspiciatis numquam adipisci aliquam pariatur quia, laboriosam saepe nostrum deleniti nihil earum neque sapiente alias hic? Eos laudantium, possimus vero reiciendis expedita asperiores iure maiores, impedit hic voluptates fugiat, a eius totam modi. Quam aperiam magni sunt ipsum aliquid explicabo est repellendus nemo possimus pariatur, aspernatur aut reiciendis magnam voluptas assumenda minus a qui odio tempora! At autem unde quasi, eveniet error consequatur ratione, cumque dolores sint sunt perspiciatis non illum quibusdam voluptatum dolorem deserunt nam sapiente voluptates inventore! Nulla architecto, quos, qui pariatur ea ipsum facilis possimus cupiditate commodi impedit perspiciatis laborum reiciendis praesentium, optio sit dolorum! Non veritatis qui soluta mollitia! Excepturi dignissimos eos quia tempore eaque modi numquam quae, deserunt voluptates dolor? A perspiciatis excepturi repudiandae, porro quidem earum laborum voluptates maxime cum fugiat! Natus fugiat iste aspernatur deserunt tempora ipsum error. Asperiores earum, voluptatum rem facere nulla nam est quas voluptates fuga animi doloremque dolor! Totam consequatur natus saepe adipisci excepturi ipsam architecto nobis placeat consectetur, vero animi iusto accusantium nesciunt deserunt, delectus sint corporis molestias. Ipsum modi, magni, fugiat quasi quisquam deleniti, eaque error debitis dolores rerum molestiae quos maxime? Praesentium deserunt nihil earum ipsam molestiae, provident accusantium possimus dolores placeat quaerat neque inventore debitis saepe molestias tempore sint ullam vel consectetur commodi sequi unde cupiditate porro atque voluptatibus. Accusamus voluptate, tempora hic cumque esse magnam. Minus distinctio qui mollitia facere enim, unde doloremque voluptate. Quos delectus vitae dolorum laborum! Voluptates, odit eligendi! Qui, repellendus ea velit fuga dolor maxime labore earum quam provident praesentium non laborum neque ipsa dignissimos nemo culpa obcaecati omnis sit consequatur nesciunt. Perspiciatis quisquam quos cupiditate eligendi recusandae, molestiae officia excepturi reprehenderit pariatur ea tenetur temporibus adipisci, officiis vel in aliquam fugit amet est! Officiis neque facere dolores dolore, rerum fuga dolorum adipisci, sit, quos numquam alias molestias modi explicabo cumque incidunt nisi. Perspiciatis voluptate praesentium natus alias temporibus sequi distinctio in voluptatibus. Quaerat explicabo deserunt vel porro nam vitae obcaecati, itaque fugiat quia nostrum nulla voluptate deleniti saepe, expedita blanditiis ipsa vero corrupti dicta neque ea nemo. Itaque, tempore vel porro perferendis qui, exercitationem sint explicabo consectetur, quod culpa adipisci architecto quaerat provident error? Quam optio quaerat quod possimus. Non voluptas atque amet beatae rerum id adipisci velit quo expedita soluta optio, ut fuga repellendus quaerat ratione doloribus quae, eaque sint explicabo placeat dolorem necessitatibus, eligendi quia rem? Fugit officia dolorem eum quo ut minima hic vitae quos alias eos impedit reiciendis, expedita accusamus quae voluptas. Explicabo, esse dolor? Laudantium, numquam doloribus ducimus quod, explicabo asperiores illo quia eligendi, tempore sequi perspiciatis dolor distinctio quisquam ut corrupti officiis voluptas quam cum fugiat! Repellat mollitia dolorem earum architecto officiis quasi non. Est numquam, debitis dolores laborum, amet aliquid facere vitae commodi libero eveniet facilis voluptatibus temporibus eaque aut? Provident possimus tempora, quis aut repellat laboriosam, ipsa nobis voluptate reiciendis quibusdam unde placeat corporis voluptatem quaerat! Qui rerum aliquid expedita pariatur eveniet dolore excepturi laudantium enim illum maxime numquam aspernatur quia ipsa, deserunt, quod nostrum voluptatibus porro officiis in impedit? Tenetur ex esse soluta modi quo aliquid repudiandae voluptatibus omnis numquam sed natus atque provident alias, deserunt tempore maxime itaque! Molestiae iste adipisci atque laborum facere reiciendis minima cumque voluptatum? Inventore eligendi nulla facere fugiat placeat fuga consequatur aut, dicta nihil voluptatum cumque magnam?
+                </p>
+            </div>
+            <div class="b_characteristics" id="characteristics">
+                <p class="b_title">Характеристики</p>
+                <mat-list>
+                    <div *ngFor="let item of items2">
+                        <mat-list-item
+                            >{{ item.key }}: {{ item.value }}</mat-list-item
+                        >
+                        <mat-divider></mat-divider>
+                    </div>
+                </mat-list>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-image-preview [imageClickEmitter]="imageClick"></app-image-preview>

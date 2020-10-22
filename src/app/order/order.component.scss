@@ -1,0 +1,145 @@
+:host {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3.5fr 1fr;
+}
+
+.stepper {
+    grid-column: 2/3;
+}
+
+.item {
+    margin: 0px 8px;
+
+    &_view {
+        display: grid;
+        padding: 8px;
+        gap: 8px;
+        grid-template-columns: max-content 1fr 0.2fr 0.2fr;
+    }
+
+    &_title {
+        width: max-content;
+        height: max-content;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(#FFFFFF, 0.6);
+        cursor: pointer;
+        outline: none;
+    }
+
+    &_count {
+        font-size: 14px;
+        color: rgba(#FFFFFF, 0.4);
+    }
+
+    &_price {
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(#FFFFFF, 0.7);
+        text-align: end;
+    }
+
+    &_summary {
+        margin: 16px 8px 0px 8px;
+        font-size: 22px;
+        color: rgba(#FFFFFF, 0.7);
+        text-align: end;
+    }
+}
+
+.delivery {
+    display: grid;
+    padding: 8px;
+    grid-template-columns: 1fr max-content;
+}
+
+.payment {
+    display: grid;
+    padding: 8px;
+    grid-template-columns: 1fr max-content;
+}
+
+.step_button {
+    height: 50px;
+    display: grid;
+    padding: 8px;
+    margin-top: 24px;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+
+    button {
+        font-size: 20px;
+        font-weight: 400;
+    }
+}
+
+.step_toggle_group {
+    width: max-content;
+    height: max-content;
+    color: rgba(#FFFFFF, 0.4);
+}
+
+.step_additional_info {
+    display: flex;
+    max-width: 300px;
+    padding: 8px;
+    color: #FFFFFF;
+    border: solid 1px rgba(255,255,255, 0.12);
+    border-radius: 4px;
+    flex-direction: column;
+    gap: 16px;
+
+    &_title {
+        font-size: 18px;
+    }
+    &_description {
+        color: rgba($color: #FFFFFF, $alpha: 0.7);
+    }
+
+    &_img_wrapper {
+        width: 104px;
+        height: 104px;
+        // padding: 8px;
+        background-color: rgba($color: #212121, $alpha: 0.2);
+        border: solid 2px #5a5a5a;
+        border-radius: 4px;
+
+        &>img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.input {
+    display: grid;
+    padding: 8px;
+    color: rgba($color: #FFFFFF, $alpha: 0.7);
+    gap: 8px;
+
+    mat-form-field {
+        
+    }
+}
+
+.img_wrapper {
+    width: 70px;
+    height: 70px;
+
+    &>img {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border: 2px solid var(--border-color);
+        border-radius: 4px;
+        outline: none;
+        box-sizing: border-box;
+        object-fit: cover;
+    }
+}

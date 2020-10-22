@@ -1,0 +1,65 @@
+<div class="content">
+    <form [formGroup]="formGroup" class="content_main">
+        <div formArrayName="items">
+            <div *ngFor="let item of items; let i = index">
+                <div class="item">
+                    <div class="item_img_wrapper">
+                        <img [src]="item.img" routerLink="/detail" />
+                    </div>
+                    <div class="item_info_wrapper">
+                        <p routerLink="/detail" class="item_info_wrapper_title">
+                            {{ item.title }}
+                        </p>
+                        <p class="item_info_wrapper_price">
+                            Цена: {{ item.price }} ₸
+                        </p>
+                        <p class="item_info_wrapper_subtitle">
+                            Артикул: {{ item.id }}
+                        </p>
+                    </div>
+                    <div class="item_input_wrapper">
+                        <span class="item_input_wrapper_label">
+                            {{ getCount(i) * item.price }} ₸
+                        </span>
+                        <input (input)="changeItemCount($event, i)" [formControlName]="i" [index]="i" class="item_input_wrapper_field" maxlength="3" />
+                    </div>
+                    <div class="item_delete_wrapper">
+                        <button
+                            type="button"
+                            (click)="removeItem(i)"
+                            mat-mini-fab
+                            class="item_delete mat-elevation-z0"
+                        >
+                            <mat-icon [inline]="true">close</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+        <div class="footer" *ngIf="items.length > 0">
+            <button
+                type="button"
+                (click)="removeAll()"
+                mat-button
+                color="warn"
+                class="footer_btn_delete"
+            >
+                Удалить всё
+            </button>
+            <button
+                routerLink="/order"
+                type="button"
+                mat-raised-button
+                color="primary"
+                class="footer_btn_order"
+            >
+                Оформить заказ
+            </button>
+        </div>
+        <div class="empty" *ngIf="items.length === 0">
+            <p>Корзина пуста</p>
+            <mat-icon>remove_shopping_cart</mat-icon>
+        </div>
+    </form>
+</div>

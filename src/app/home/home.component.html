@@ -1,0 +1,39 @@
+<div class="content">
+  <div class="catalog">
+    <p class="catalog_header">Каталоги</p>
+
+    <div mat-ripple class="catalog_item" *ngFor="let item of catalogs; let i = index;">
+      <img
+        class="catalog_image"
+        src="{{ item.img }}"
+        style="--bg: {{ item.color }};"
+      />
+      <p class="catalog_text">{{ item.title }}</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="grid">
+      <mat-card *ngFor="let item of obs | async">
+        <div class="img_wrapper">
+          <img
+            mat-card-image
+            style="background-color: #ffffff3a"
+            src="{{ item.img }}?{{ item.uuid }}"
+          />
+        </div>
+        <mat-card-content>
+          <p routerLink="/detail">{{ item.title }}</p>
+          <p>{{ item.description }}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <p>{{ item.price }} ₸</p>
+          <button mat-raised-button (click)="openSnackBar()" color="primary">Купить</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <mat-paginator [pageSize]="20"></mat-paginator>
+  </div>
+</div>

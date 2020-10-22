@@ -1,0 +1,33 @@
+<div
+  class="container"
+  [ngClass]="{
+    'container--hidden': !url || !alt
+  }"
+  (click)="close()"
+>
+  <!-- <mat-checkbox
+    class="container__checkbox"
+    (click)="toggleSmoothing($event)"
+    [(ngModel)]="smoothingEnabled"
+    >Включить сглаживание</mat-checkbox
+  > -->
+  <p class="container__scale">{{ currentScale }}x</p>
+  <img
+    #image
+    class="container__image"
+    [src]="url"
+    [alt]="alt"
+    (mousemove)="imageMouseMove($event)"
+    (mouseenter)="imageMouseEnter($event)"
+    (mouseleave)="imageMouseLeave($event)"
+    (click)="imageClick($event)"
+    (contextmenu)="imageContextMenu($event)"
+    (wheel)="imageWheel($event)"
+  />
+  <canvas
+    #zoom
+    class="container__zoom"
+    [width]="currentZoomSize"
+    [height]="currentZoomSize"
+  ></canvas>
+</div>

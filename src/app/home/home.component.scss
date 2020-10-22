@@ -1,0 +1,127 @@
+.content {
+  height: 100%;
+  display: grid;
+  color: #ffffff;
+  background-color: #424242;
+  grid-template-columns: 1fr minmax(400px, 3.5fr) 1fr;
+  gap: 8px;
+  grid-template-rows: 100%;
+}
+
+.img_wrapper {
+  --ratio-x: 10;
+  --ratio-y: 8;
+  position: relative;
+  padding-bottom: calc((var(--ratio-y) / var(--ratio-x)) * 100%);
+
+  &>img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+  }
+}
+
+.catalog {
+  display: grid;
+  padding: 24px;
+  grid-auto-rows: max-content;
+  gap: 12px;
+
+  &_header {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  &_item {
+    display: grid;
+    padding: 8px;
+    cursor: pointer;
+    background-color: #4a4a4a;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2),;
+    user-select: none;
+    gap: 8px;
+    grid-template-columns: max-content 1fr;
+    align-items: center
+  }
+
+  &_image {
+      width: var(--size);
+      height: var(--size);
+      display: block;
+      background-color: var(--bg);
+      border-radius: 50%;
+      object-fit: cover;
+      --size: 48px;
+  }
+
+  &_text {
+    margin: 0;
+    font-size: large;
+  }
+
+}
+
+.grid {
+  display: grid;
+  padding: 24px;
+  background-color: #4A4A4A;
+  user-select: none;
+  gap: 24px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-rows: 1fr;
+  --columns: 4;
+  @media screen and (max-width: 1080px) {
+    --columns: 2;
+  }
+}
+
+[mat-card-image]{
+  margin: 0px;
+}
+
+mat-card-content {
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+mat-card {
+  height: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  box-sizing: border-box;
+  flex-direction: column;
+  [routerLink]{
+    outline: none;
+    &::after{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+    }
+  }
+
+  &>.img_wrapper{
+    margin: 0 -16px;
+  }
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & p {
+    padding-left: 8px;
+    margin: 0;
+    font-size: large;
+  }
+}
+
+mat-paginator {
+  background-color: rgba(#000000, 0.1);
+}
